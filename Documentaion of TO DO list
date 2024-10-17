@@ -2,62 +2,77 @@ To-Do List Program Documentation
 Overview
 This is a simple command-line To-Do List application written in Python. It allows users to manage their tasks by performing the following operations:
 
-View all tasks.
-Add new tasks.
-Delete existing tasks.
-Save tasks to a file for persistence, so they can be reloaded the next time the program runs.
-Program Components
+1.View all tasks.
+2.Add new tasks.
+3,Delete existing tasks.
+4.Save tasks to a file for persistence, so they can be reloaded the next time the program runs.
+
+Program Components:
+
 1. File: TODO_FILE
+
 Stores the name of the file (todo_list.txt) where tasks are saved. This file is used for persistence, allowing tasks to be saved and loaded across sessions.
+
 2. Function: load_tasks()
+
 Purpose: Loads tasks from the todo_list.txt file.
 Returns: A list of tasks. If the file does not exist, it returns an empty list.
-Logic:
-Checks if the file exists using the os.path.exists() method.
-If the file exists, it reads the file line by line, strips any whitespace or newline characters, and stores each task in a list.
-If the file does not exist, it assumes there are no tasks and returns an empty list.
+Logic: Checks if the file exists using the os.path.exists() method.
+
+*If the file exists, it reads the file line by line, strips any whitespace or newline characters, and stores each task in a list.
+*If the file does not exist, it assumes there are no tasks and returns an empty list.
+
 3. Function: save_tasks(tasks)
+
 Purpose: Saves the current list of tasks to the todo_list.txt file.
 Parameters:
 tasks: A list of tasks (strings) to be saved.
-Logic:
-Opens the todo_list.txt file in write mode.
+Logic:Opens the todo_list.txt file in write mode.
 Writes each task in the list to the file, with each task on a new line.
+
 4. Function: show_tasks(tasks)
+
 Purpose: Displays the current list of tasks.
 Parameters:
 tasks: A list of tasks to be displayed.
-Logic:
-If the list is empty, it prints a message stating that no tasks are available.
+Logic:If the list is empty, it prints a message stating that no tasks are available.
 Otherwise, it prints each task in the list, numbered sequentially, for easy identification.
+
 5. Function: add_task(tasks)
+
 Purpose: Prompts the user to add a new task to the list.
 Parameters:
 tasks: The current list of tasks, to which the new task will be appended.
-Logic:
-Prompts the user to enter a new task.
+Logic:Prompts the user to enter a new task.
+
 Adds the task to the list and saves the updated list using save_tasks().
 Confirms to the user that the task has been added.
+
 6. Function: delete_task(tasks)
+
 Purpose: Deletes a task from the list based on the task number entered by the user.
 Parameters:
 tasks: The current list of tasks, from which one task will be removed.
-Logic:
-Displays the current tasks by calling show_tasks().
+Logic:Displays the current tasks by calling show_tasks().
+
 Prompts the user to enter the number corresponding to the task they want to delete.
-If the input is valid (i.e., the number corresponds to a task), it removes the task from the list.
+
+*If the input is valid (i.e., the number corresponds to a task), it removes the task from the list.
 Saves the updated list using save_tasks() and confirms the task has been deleted.
-If an invalid task number is entered, it prints an error message.
+*If an invalid task number is entered, it prints an error message.
+
 7. Function: main()
+
 Purpose: The main loop of the program, providing the user interface for interacting with the To-Do List.
-Logic:
-Loads tasks from the file using load_tasks().
+Logic:Loads tasks from the file using load_tasks().
+
 Displays a menu with four options:
-View To-Do List: Displays all tasks.
-Add Task: Prompts the user to add a new task.
-Delete Task: Prompts the user to delete an existing task.
-Exit: Exits the program.
+1.View To-Do List: Displays all tasks.
+2.Add Task: Prompts the user to add a new task.
+3.Delete Task: Prompts the user to delete an existing task.
+4.Exit: Exits the program.
 Executes the corresponding function based on the user’s choice. Repeats the menu until the user chooses to exit.
+
 How It Works
 File-Based Task Persistence:
 
@@ -70,31 +85,29 @@ View all tasks.
 Add new tasks by typing them in.
 Delete tasks by specifying the task number.
 Exit the program when they are done.
+
 Usage Example
 Starting the Program:
 
 Run the script.
 The program presents a menu where the user can choose from four options.
+
 Viewing Tasks:
-
 If the user selects "View To-Do List", the program will display the current list of tasks with their corresponding numbers.
-Adding a Task:
 
+Adding a Task:
 If the user selects "Add Task", they will be prompted to enter a new task.
 The task will be added to the list and saved in the todo_list.txt file.
-Deleting a Task:
 
+Deleting a Task:
 If the user selects "Delete Task", they will be shown the current list of tasks and asked to enter the task number they wish to delete.
 The selected task will be removed from the list and the updated list will be saved to todo_list.txt.
-Exiting the Program:
 
+Exiting the Program:
 If the user selects "Exit", the program will terminate and save the current list of tasks.
+
 Error Handling
 The program handles invalid input for task deletion (e.g., if the user enters a non-numeric or out-of-range task number) by displaying an error message.
 The program gracefully handles cases where there are no tasks to display or delete.
-Enhancements for Future Versions
-Adding the ability to mark tasks as complete.
-Sorting tasks based on priority or due date.
-Providing an option to edit tasks.
-Adding a search or filter feature to find tasks easily.
-Adding a graphical user interface (GUI) using libraries like Tkinter or PyQt.
+
+
